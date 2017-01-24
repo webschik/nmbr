@@ -57,7 +57,7 @@ const result = formatNumber(24534.343e-1, {
 }));
 ```
 
-More cases you may find in `./test/unit/formatter.spec.js`
+More cases you may find in [./test/unit/formatter.spec.js](test/unit/formatter.spec.js)
 
 #### Formatting presets
 Formatting Preset is a predefined set op formatting options the gives you
