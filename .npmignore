@@ -1,0 +1,12 @@
+.idea
+DS_Store
+npm-debug.*
+node_modules
+typings
+
+.gitignore
+.npmignore
+src
+test
+jest
+tslint.json
