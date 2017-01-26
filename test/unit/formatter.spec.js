@@ -257,16 +257,6 @@ describe('Formatter', () => {
             result = formatNumber(279585e-15, getOptions({fractionSize: 15, roundSize: 12, minFractionSize: 15}));
             expect(result).toEqual(`0${ fractionDelimiter }000000000280000`);
         });
-
-        it('"price" preset', () => {
-            let result;
-
-            result = formatNumber(4.12555, getOptions({preset: 'price'}));
-            expect(result).toEqual(`4${ fractionDelimiter }1255`);
-
-            result = formatNumber(4, getOptions({preset: 'price'}));
-            expect(result).toEqual(`4${ fractionDelimiter }00`);
-        });
     });
 
     describe('#addFormattingPreset()', () => {

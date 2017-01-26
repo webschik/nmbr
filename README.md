@@ -60,47 +60,8 @@ const result = formatNumber(24534.343e-1, {
 More cases you may find in [./test/unit/formatter.spec.js](test/unit/formatter.spec.js)
 
 #### Formatting presets
-Formatting Preset is a predefined set op formatting options the gives you
-more easier access to formatting.
+You may define your own set of rules for formatting:
 
-**Default presets:**
-```js
-{
-    amount: {
-        fractionSize: 2,
-        minFractionSize: 2,
-        separateThousands: true
-    },
-    percent: {
-        fractionSize: 2,
-        minFractionSize: 2,
-        separateThousands: true
-    },
-    price: {
-        fractionSize: 4,
-        minFractionSize: 2,
-        separateThousands: true
-    },
-    orderInputPrice: {
-        fractionSize: 6,
-        minFractionSize: 0,
-        separateThousands: true
-    }
-}
-
-...
-
-import {formatNumber} from 'nmbr';
-
-// '120.009,1234'
-const result = formatNumber(120009.123456, {
-    preset: 'price',
-    thousandDelimiter: '.',
-    fractionDelimiter: ','
-}));
-```
-
-You **may define** your own presets:
 ```js
 import {addFormattingPreset} from 'nmbr';
 

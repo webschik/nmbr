@@ -1,5 +1,6 @@
 import padLeft from './pad-left';
 import padRight from './pad-right';
+import * as logger from './logger';
 
 export interface NumberFormattingOptions {
     fractionSize?: number;
@@ -11,29 +12,7 @@ export interface NumberFormattingOptions {
     preset?: string;
 }
 
-const presets: {[key: string]: NumberFormattingOptions;} = {
-    amount: {
-        fractionSize: 2,
-        minFractionSize: 2,
-        separateThousands: true
-    },
-    percent: {
-        fractionSize: 2,
-        minFractionSize: 2,
-        separateThousands: true
-    },
-    price: {
-        fractionSize: 4,
-        minFractionSize: 2,
-        separateThousands: true
-    },
-    orderInputPrice: {
-        fractionSize: 6,
-        minFractionSize: 0,
-        separateThousands: true
-    }
-};
-
+const presets: {[key: string]: NumberFormattingOptions;} = {};
 const notEmptyNumberPattern: RegExp = /[1-9]/;
 const exponentPattern: RegExp = /[eE]/;
 
@@ -94,7 +73,7 @@ function numberToString (value: number): string {
 
 export function addFormattingPreset (name: string, options: NumberFormattingOptions) {
     if (presets[name]) {
-        throw new Error(`Formatting preset with a name ${ name } is already exist!`);
+        logger.warn(`Formatting preset with a name ${ name } is already exist!`);
     }
 
     presets[name] = options;
