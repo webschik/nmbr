@@ -5,6 +5,10 @@ const commaCode: number = ','.charCodeAt(0);
 const pointCode: number = '.'.charCodeAt(0);
 
 export function parseNumber (input: string): number {
+    if (!input) {
+        return 0;
+    }
+
     let stack: number[] = [];
     let isInteger: boolean = true;
     let i: number = input.length;
