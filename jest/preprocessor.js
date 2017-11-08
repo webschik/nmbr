@@ -18,7 +18,7 @@ module.exports = {
         if (babel.util.canCompile(path)) {
             return babel.transform(src, {
                 filename: path,
-                retainLines: true,
+                retainLines: true
             }).code;
         }
 
