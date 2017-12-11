@@ -2,7 +2,6 @@
 [![Build Status](https://secure.travis-ci.org/webschik/nmbr.png?branch=master)](https://travis-ci.org/webschik/nmbr)
 [![npm](https://img.shields.io/npm/dm/nmbr.svg)](https://www.npmjs.com/package/nmbr)
 [![npm](https://img.shields.io/npm/l/nmbr.svg)](https://www.npmjs.com/package/nmbr)
-[![Code Climate](https://codeclimate.com/github/webschik/nmbr/badges/gpa.svg)](https://codeclimate.com/github/webschik/nmbr)
 
 > Isomorphic JavaScript numbers parser and formatter
 
