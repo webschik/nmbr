@@ -1,3 +1,6 @@
+# v1.1.2
+* code refactoring
+
 # v1.1.1
 * `parseNumber` should return 0 for empty argument
 
