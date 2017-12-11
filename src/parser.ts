@@ -9,7 +9,7 @@ export function parseNumber (input: string): number {
         return 0;
     }
 
-    let stack: number[] = [];
+    const stack: number[] = [];
     let isInteger: boolean = true;
     let i: number = input.length;
     let isNegative: boolean = false;
@@ -20,7 +20,7 @@ export function parseNumber (input: string): number {
         if (symbolCode >= zeroNumberCode && symbolCode <= nineNumberCode) {
             isNegative = false;
             stack.unshift(symbolCode);
-        } if (symbolCode === minusSignCode) {
+        } else if (symbolCode === minusSignCode) {
             isNegative = true;
         } else if (isInteger && (symbolCode === commaCode || symbolCode === pointCode)) {
             isInteger = false;

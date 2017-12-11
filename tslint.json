@@ -1,6 +1,8 @@
 {
-  "rulesDirectory": "node_modules/tslint-eslint-rules/dist/rules",
+  "extends": "tslint:recommended",
+  "rulesDirectory": "./node_modules/tslint-eslint-rules/dist/rules",
   "rules": {
+    "ban-types": false,
     "member-ordering": [
       true,
       {
@@ -18,7 +20,9 @@
         ]
       }
     ],
+    "member-access": [true, "no-public"],
     "no-internal-module": true,
+    "no-string-literal": true,
     "no-namespace": [
       true,
       "allow-declarations"
@@ -40,13 +44,25 @@
         "variable-declaration": "onespace"
       }
     ],
+    "interface-name": false,
+    "array-type": false,
+
+    "import-spacing": false,
+    "no-var-requires": false,
+    "eofline": false,
+    "object-literal-shorthand": false,
+    "no-shadowed-variable": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
     "switch-default": true,
     "triple-equals": [
       true,
       "allow-null-check"
     ],
+    "no-consecutive-blank-lines": [true, 1],
     "forin": true,
     "no-arg": true,
+    "no-switch-case-fall-through": true,
     "no-duplicate-variable": true,
     "no-unused-expression": true,
     "variable-name": [
@@ -74,8 +90,9 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-module",
-      "check-type"
+      "check-separator",
+      "check-type",
+      "check-preblock"
     ],
     "quotemark": [
       true,
@@ -86,6 +103,16 @@
       true,
       "always"
     ],
+    "max-line-length": [true, 120],
+    "prefer-template": [true, "allow-single-concat"],
+
+    "space-before-function-paren": [true, {
+      "anonymous": "always",
+      "named": "always",
+      "method": "always",
+      "constructor": "always",
+      "asyncArrow": "never"
+    }],
     "no-constant-condition": true,
     "trailing-comma": [
       true,
@@ -94,6 +121,7 @@
         "singleline": "never"
       }
     ],
+    "object-curly-spacing": [true, "never"],
     "no-control-regex": true,
     "no-duplicate-case": true,
     "no-empty": true,

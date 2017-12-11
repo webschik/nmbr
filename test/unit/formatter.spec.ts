@@ -1,10 +1,11 @@
 import {formatNumber, addFormattingPreset} from './../../src/index';
+import {NumberFormattingOptions} from '../../src/formatter';
 
 describe('Formatter', () => {
     const thousandDelimiter = '.';
     const fractionDelimiter = ',';
 
-    function getOptions (options) {
+    function getOptions (options?: NumberFormattingOptions) {
         return Object.assign({
             thousandDelimiter,
             fractionDelimiter
@@ -253,15 +254,12 @@ describe('Formatter', () => {
             result = formatNumber(0.58, getOptions({fractionSize: 2, roundSize: 1, minFractionSize: 2}));
             expect(result).toEqual(`0${ fractionDelimiter }60`);
 
-
             result = formatNumber(279585e-15, getOptions({fractionSize: 15, roundSize: 12, minFractionSize: 15}));
             expect(result).toEqual(`0${ fractionDelimiter }000000000280000`);
         });
     });
 
     describe('#addFormattingPreset()', () => {
-        const number = 4.12555;
-
         it('should format the number without preset', () => {
             const result = formatNumber(4.12555, getOptions());
 

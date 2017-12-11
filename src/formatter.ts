@@ -12,7 +12,7 @@ export interface NumberFormattingOptions {
     preset?: string;
 }
 
-const presets: {[key: string]: NumberFormattingOptions;} = {};
+const presets: {[key: string]: NumberFormattingOptions} = {};
 const notEmptyNumberPattern: RegExp = /[1-9]/;
 const exponentPattern: RegExp = /[eE]/;
 

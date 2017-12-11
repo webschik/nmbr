@@ -1,33 +1,35 @@
-const isConsoleAvailable: boolean = typeof console !== 'undefined';
+declare const process: any;
 
-export function log (message?: any, ...optionalParams: any[]) {
-    if (!isConsoleAvailable) {
+export type LoggerHandler = (message?: any, ...optionalParams: any[]) => void;
+
+export const log: LoggerHandler = function log () {
+    if (process.env.NODE_ENV === 'production') {
         return;
     }
 
-    return console.log(message, ...optionalParams);
-}
+    return console.log.apply(console, arguments);
+};
 
-export function error (message?: any, ...optionalParams: any[]) {
-    if (!isConsoleAvailable) {
+export const error: LoggerHandler = function error () {
+    if (process.env.NODE_ENV === 'production') {
         return;
     }
 
     if (!console.error) {
-        return this.log(message, ...optionalParams);
+        return console.log.apply(console, arguments);
     }
 
-    return console.error(message, ...optionalParams);
-}
+    return console.error.apply(console, arguments);
+};
 
-export function warn (message?: any, ...optionalParams: any[]) {
-    if (!isConsoleAvailable) {
+export const warn: LoggerHandler = function warn () {
+    if (process.env.NODE_ENV === 'production') {
         return;
     }
 
     if (!console.warn) {
-        return this.log(message, ...optionalParams);
+        return console.log.apply(console, arguments);
     }
 
-    return console.warn(message, ...optionalParams);
-}
+    return console.warn.apply(console, arguments);
+};
