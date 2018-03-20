@@ -1,4 +1,4 @@
-import {parseNumber} from './../../src/index';
+import {parseNumber} from '../../src/index';
 
 describe('Parser', () => {
     describe('#parseNumber()', () => {

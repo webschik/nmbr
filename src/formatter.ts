@@ -1,16 +1,7 @@
+import * as logger from './logger';
 import padLeft from './pad-left';
 import padRight from './pad-right';
-import * as logger from './logger';
-
-export interface NumberFormattingOptions {
-    fractionSize?: number;
-    roundSize?: number;
-    minFractionSize?: number;
-    separateThousands?: boolean;
-    thousandDelimiter?: string;
-    fractionDelimiter?: string;
-    preset?: string;
-}
+import {NumberFormattingOptions} from './index';
 
 const presets: {[key: string]: NumberFormattingOptions} = {};
 const notEmptyNumberPattern: RegExp = /[1-9]/;
