@@ -1,3 +1,7 @@
+# v1.2.0
+* Added number shortener
+* code refactoring
+
 # v1.1.2
 * code refactoring
 

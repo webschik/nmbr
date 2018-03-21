@@ -13,6 +13,8 @@ export type NumberShortenerUnitName = 'Y'|'Z'|'E'|'P'|'T'|'G'|'M'|'k'|'h'|'da'|'
 export interface NumberShortenerOptions {
     maxUnit?: NumberShortenerUnitName;
     minUnit?: NumberShortenerUnitName;
+    fractionSize?: number;
+    template?: string;
 }
 
 export {formatNumber, addFormattingPreset} from './formatter';

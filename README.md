@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/dm/nmbr.svg)](https://www.npmjs.com/package/nmbr)
 [![npm](https://img.shields.io/npm/v/nmbr.svg)](https://www.npmjs.com/package/nmbr)
 [![npm](https://img.shields.io/npm/l/nmbr.svg)](https://www.npmjs.com/package/nmbr)
+[![Coverage Status](https://coveralls.io/repos/github/webschik/nmbr/badge.svg?branch=master)](https://coveralls.io/github/webschik/nmbr?branch=master)
 
 > Isomorphic JavaScript numbers parser and formatter
 
@@ -105,5 +106,23 @@ Converts long numbers to short ones:
 ```js
 import {shortNumber} from 'nmbr';
 
+shortNumber(5432); // 5.4k
+shortNumber(1236903); // 1.2M
+shortNumber(1236903, {
+    template: "The size is [value]([unit]b)"
+}); // The size is 1.2(Mb)
+```
 
+This method takes 2 arguments:
+* `value` - number or string: `2.13` or `'2.13'` 
+* `options`:
+```
+{
+    fractionSize?: number;
+    template?: string;
+    maxUnit?: NumberShortenerUnitName;
+    minUnit?: NumberShortenerUnitName;        
+}
+
+// NumberShortenerUnitName = 'Y'|'Z'|'E'|'P'|'T'|'G'|'M'|'k'|'h'|'da'|'d'|'c'|'m'|'µ'|'n'|'p'|'f'|'a'|'z'|'y'
 ```
