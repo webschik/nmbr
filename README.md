@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/dm/nmbr.svg)](https://www.npmjs.com/package/nmbr)
 [![npm](https://img.shields.io/npm/v/nmbr.svg)](https://www.npmjs.com/package/nmbr)
 [![npm](https://img.shields.io/npm/l/nmbr.svg)](https://www.npmjs.com/package/nmbr)
+[![Coverage Status](https://coveralls.io/repos/github/webschik/nmbr/badge.svg?branch=master)](https://coveralls.io/github/webschik/nmbr?branch=master)
 
 > Isomorphic JavaScript numbers parser and formatter
 
@@ -14,14 +15,16 @@
 npm install nmbr --save
 ```
 
-```js
+```html
 // Standard HTML import
 <script src="node_modules/nmbr/lib/index.js"></script>
 <script>
   var formatNumber = window.nmbr.formatNumber;
   ...
 </script>
+```
 
+```js
 // JS module
 import {formatNumber, parseNumber} from 'nmbr';
 ```
@@ -34,7 +37,7 @@ Converts the number to a string by specified options.
 This method takes 2 arguments:
 * `number` - any JS number
 * `options`:
-```js
+```
 {
     fractionSize?: number;
     roundSize?: number;
@@ -55,7 +58,7 @@ const result = formatNumber(24534.343e-1, {
     fractionSize: 2,
     thousandDelimiter: '.',
     fractionDelimiter: ','
-}));
+});
 ```
 
 More cases you may find in [./test/unit/formatter.spec.js](test/unit/formatter.spec.js)
@@ -75,10 +78,11 @@ addFormattingPreset('myOwnPreset', {
 // '120.009,1'
 const result = formatNumber(120009.123456, {
     preset: 'myOwnPreset'
-}));
+});
 ```
 
 ### Parser
+#### parseNumber
 Parses a number from input string:
 
 ```js
@@ -93,4 +97,32 @@ parseNumber(' 1 , 1');   // 1.1
 parseNumber('-1 , 2');   // -1.2
 parseNumber('-1,12.78'); // -112.78
 parseNumber('-1.13,79'); // -113.79
+```
+
+### Shortener
+#### shortNumber
+Converts long numbers to short ones:
+
+```js
+import {shortNumber} from 'nmbr';
+
+shortNumber(5432); // 5.4k
+shortNumber(1236903); // 1.2M
+shortNumber(1236903, {
+    template: "The size is [value]([unit]b)"
+}); // The size is 1.2(Mb)
+```
+
+This method takes 2 arguments:
+* `value` - number or string: `2.13` or `'2.13'` 
+* `options`:
+```
+{
+    fractionSize?: number;
+    template?: string;
+    maxUnit?: NumberShortenerUnitName;
+    minUnit?: NumberShortenerUnitName;        
+}
+
+// NumberShortenerUnitName = 'Y'|'Z'|'E'|'P'|'T'|'G'|'M'|'k'|'h'|'da'|'d'|'c'|'m'|'µ'|'n'|'p'|'f'|'a'|'z'|'y'
 ```

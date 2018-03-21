@@ -1,13 +1,15 @@
 {
   "name": "nmbr",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Isomorphic JavaScript numbers parser and formatter",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "lint": "./node_modules/.bin/tslint \"src/**/*.ts\" && ./node_modules/.bin/tslint \"test/unit/**/*.ts\"",
     "test": "npm run lint && ./node_modules/.bin/jest --no-cache",
-    "build": "npm run lint && ./node_modules/.bin/webpack"
+    "build": "npm run lint && ./node_modules/.bin/webpack",
+    "precoverage": "npm run test",
+    "coverage": "cat ./test/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +17,12 @@
   },
   "keywords": [
     "JavaScript",
+    "js",
     "number",
     "format",
     "parse",
-    "Node.js"
+    "shortener",
+    "short number"
   ],
   "author": "webschik",
   "license": "MIT",
@@ -31,11 +35,12 @@
     "babel-core": "^6.22.1",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-jest": "^18.0.0",
+    "coveralls": "^3.0.0",
     "jest": "^18.1.0",
     "ts-loader": "^3.2.0",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.6.2",
+    "typescript": "^2.7.2",
     "webpack": "^3.10.0"
   },
   "jest": {
@@ -43,7 +48,8 @@
     "coverageDirectory": "test/coverage",
     "coverageReporters": [
       "cobertura",
-      "html"
+      "html",
+      "lcov"
     ],
     "collectCoverageFrom": [
       "src/*.{ts,tsx}",

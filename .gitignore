@@ -1,4 +1,6 @@
+.vscode
 .idea
+.coveralls.yml
 DS_Store
 npm-debug.*
 node_modules

@@ -3,7 +3,7 @@ DS_Store
 npm-debug.*
 node_modules
 typings
-
+.coveralls.yml
 .gitignore
 .npmignore
 src

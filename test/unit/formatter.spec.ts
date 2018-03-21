@@ -1,5 +1,5 @@
-import {formatNumber, addFormattingPreset} from './../../src/index';
-import {NumberFormattingOptions} from '../../src/formatter';
+import {formatNumber, addFormattingPreset} from '../../src/index';
+import {NumberFormattingOptions} from '../../src/index';
 
 describe('Formatter', () => {
     const thousandDelimiter = '.';
