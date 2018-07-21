@@ -61,7 +61,7 @@ const result = formatNumber(24534.343e-1, {
 });
 ```
 
-More cases you may find in [./test/unit/formatter.spec.js](test/unit/formatter.spec.js)
+More cases you may find in [./blob/master/test/unit/formatter.spec.ts](test/unit/formatter.spec.js)
 
 #### Formatting presets
 You may define your own set of rules for formatting:
