@@ -2,7 +2,14 @@ import {parseNumber} from '../../src/index';
 
 describe('Parser', () => {
     describe('#parseNumber()', () => {
-        it('should parse the number', () => {
+        it('should parse a number with custom delimiter options', () => {
+            expect(parseNumber('1,234', {thousandDelimiter: ','})).toBe(1234);
+            expect(parseNumber('1,234.56', {thousandDelimiter: ','})).toBe(1234.56);
+            expect(parseNumber('1.234,56', {thousandDelimiter: '.'})).toBe(1234.56);
+            expect(parseNumber('1.234.567', {thousandDelimiter: '.'})).toBe(1234567);
+        });
+
+        it('should parse a number with default options', () => {
             expect(parseNumber('0')).toBe(0);
             expect(parseNumber(undefined)).toBe(0);
             expect(parseNumber(null)).toBe(0);

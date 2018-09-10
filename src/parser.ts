@@ -4,11 +4,15 @@ const nineNumberCode: number = '9'.charCodeAt(0);
 const commaCode: number = ','.charCodeAt(0);
 const pointCode: number = '.'.charCodeAt(0);
 
-export function parseNumber (input: string): number {
+export function parseNumber (input: string, options?: {thousandDelimiter?: string}): number {
     if (!input) {
         return 0;
     }
 
+    const thousandDelimiterCode: number =
+        options &&
+        options.thousandDelimiter &&
+        options.thousandDelimiter.charCodeAt(0);
     const stack: number[] = [];
     let isInteger: boolean = true;
     let i: number = input.length;
@@ -22,7 +26,11 @@ export function parseNumber (input: string): number {
             stack.unshift(symbolCode);
         } else if (symbolCode === minusSignCode) {
             isNegative = true;
-        } else if (isInteger && (symbolCode === commaCode || symbolCode === pointCode)) {
+        } else if (
+            isInteger &&
+            thousandDelimiterCode !== symbolCode &&
+            (symbolCode === commaCode || symbolCode === pointCode)
+        ) {
             isInteger = false;
 
             // use '.' as decimals separator

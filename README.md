@@ -86,6 +86,15 @@ const result = formatNumber(120009.123456, {
 Parses a number from input string:
 
 ```js
+parseNumber('1,234', {thousandDelimiter: ','}); //  1234
+parseNumber('1,234.56', {thousandDelimiter: ','}); // 1234.56
+parseNumber('1.234,56', {thousandDelimiter: '.'}); // 1234.56
+parseNumber('1.234.567', {thousandDelimiter: '.'}); // 1234567
+```
+
+You may omit delimiter options if you parse **only** fractional numbers:
+
+```js
 import {parseNumber} from 'nmbr';
 
 parseNumber('.02');      // 0.02

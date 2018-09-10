@@ -1,6 +1,6 @@
-declare const process: any;
-
 export type LoggerHandler = (message?: any, ...optionalParams: any[]) => void;
+
+/* tslint:disable no-console */
 
 export const log: LoggerHandler = function log () {
     if (process.env.NODE_ENV === 'production') {
@@ -33,3 +33,5 @@ export const warn: LoggerHandler = function warn () {
 
     return console.warn.apply(console, arguments);
 };
+
+/* tslint:enable */

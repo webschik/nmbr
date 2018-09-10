@@ -233,6 +233,12 @@ describe('Formatter', () => {
             expect(result).toEqual(`0${ fractionDelimiter }00000000028`);
         });
 
+        it('separateThousands', () => {
+            const result = formatNumber(12341234.567, getOptions({separateThousands: false}));
+
+            expect(result).toEqual(`12341234${ fractionDelimiter }567`);
+        });
+
         it('fractionSize, roundSize, minFractionSize', () => {
             let result;
 
