@@ -26,7 +26,7 @@ npm install nmbr --save
 
 ```js
 // JS module
-import {formatNumber, parseNumber} from 'nmbr';
+import {formatNumber, parseNumber, shortNumber} from 'nmbr';
 ```
 
 ## API
